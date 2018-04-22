@@ -1,0 +1,20 @@
+{
+    "thread_count" : 3,
+    "input_folder_path" : "[PATH_TO_REDDIT_DATA]",
+    "sqlite_db_path" : "[PATH_TO_DB_FILE]",
+    "fill_database" : false,
+    "sanitize_comments" : true,
+    "sanitize_comments_parameters": {
+        "lower_case_string": true,
+        "name_entity_removal": true,
+        "name_entity_placeholder": "<name>",
+        "number_removal": true,
+        "number_placeholder": "<number>",
+        "unknown_word_placeholder": "<unk>",
+        "punctuation_removal": true,
+        "punctuation_string": "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~",
+        "add_end_of_utterance_token": true,
+        "end_of_utterance_token": "</s>",
+        "wordlist": []
+    }
+}
