@@ -83,7 +83,7 @@ def fill_database(conf, file_path):
             
             comment_dict = json.loads(l)
             # We will use the whitelist if not empty, else the blacklist
-            if True or comment_dict.get('subreddit', '') not in conf.get('blacklist', '') and (len(conf.get('whitelist', '') == 0) or comment_dict.get('subreddit', '') in conf.get('whitelist', '')):
+            if (conf["minimum_score"] <= 0 or comment_dict.get('score', 0) > conf["minimum_score"]) and (conf["max_comment_length"] <= 0 or len(comment_dict.get("body", "").split(" ")) <= conf["max_comment_length"]):
                 batch.append((
                     int(comment_dict.get('score_hidden', '0')),
                     comment_dict.get('name', ''),

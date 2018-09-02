@@ -106,9 +106,9 @@ def sanitize_db_comments(conf):
     conf['sanitize_comments_parameters']['wordlist'].append(conf['sanitize_comments_parameters']['number_placeholder'])
     conf['sanitize_comments_parameters']['wordlist'].append(conf['sanitize_comments_parameters']['unknown_word_placeholder'])
     # Converting the wordlist to a set for faster lookup
-    conf['wordlist'] = set(conf['wordlist'])
+    conf['sanitize_comments_parameters']['wordlist'] = set(conf['sanitize_comments_parameters']['wordlist'])
     # Converting the punctuation string to a set for faster lookup
-    conf['punctuation_string'] = set(conf['punctuation_string'])
+    conf['sanitize_comments_parameters']['punctuation_string'] = set(conf['sanitize_comments_parameters']['punctuation_string'])
 
     conn = sqlite3.connect(conf["sqlite_db_path"])
     c = conn.cursor()
